@@ -1,0 +1,10 @@
+<p-cellEditor>
+    <ng-template pTemplate="input">
+        <p-calendar [(ngModel)]="user[field]" dateFormat="dd/mm/yy"></p-calendar>
+    </ng-template>
+    <ng-template pTemplate="output">
+        {{ user[field] | date:'dd/MM/yyyy' }}
+    </ng-template>
+</p-cellEditor>
+
+

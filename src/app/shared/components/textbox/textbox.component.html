@@ -1,0 +1,8 @@
+<p-cellEditor>
+    <ng-template pTemplate="input">
+        <input pInputText [(ngModel)]="user[field]"/>
+    </ng-template>
+    <ng-template pTemplate="output">
+        {{ user[field] }}
+    </ng-template>
+</p-cellEditor>

@@ -1,0 +1,21 @@
+<p-button (click)="showDialog()" icon="pi pi-eye"></p-button>
+<p-dialog header="Details" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <p><strong>Name:</strong> {{user.name}}</p>
+    <p><strong>D.O.B:</strong> {{user.dob | date:'dd/MM/yyyy'}}</p>
+    <p><strong>Country:</strong> {{user.country.countryName}}</p>
+    <p><strong>State:</strong> {{user.state.stateName}}</p>
+    <p><strong>Street:</strong> {{user.street}}</p>
+    <p><strong>House No. :</strong> {{user.houseNo}}</p>
+    <!-- <p>
+        <strong>Subjects:</strong>
+        <span *ngFor="let single of subject, index  as i ">
+            {{single}}
+            <span *ngIf="" else elseBlock>, </span>
+            <ng-template>
+                <span>.</span>
+            </ng-template>
+        </span>
+    </p> -->
+    <p><strong>Marks:</strong> {{user.marks + '%'}}</p>
+</p-dialog>
+

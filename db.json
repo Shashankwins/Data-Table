@@ -1,0 +1,285 @@
+{
+  "states": [
+    {
+      "stateName": "Himachal Pradesh",
+      "countryName": "India",
+      "id": "26d8"
+    },
+    {
+      "stateName": "Haryana",
+      "countryName": "India",
+      "id": "76ae"
+    },
+    {
+      "stateName": "Punjab",
+      "countryName": "India",
+      "id": "0725"
+    },
+    {
+      "stateName": "Rajasthan",
+      "countryName": "India",
+      "id": "589c"
+    },
+    {
+      "stateName": "Los Vegas",
+      "countryName": "USA",
+      "id": "14a0"
+    },
+    {
+      "stateName": "Utah",
+      "countryName": "USA",
+      "id": "733c"
+    },
+    {
+      "stateName": "New York",
+      "countryName": "USA",
+      "id": "c3da"
+    },
+    {
+      "stateName": "Washington DC",
+      "countryName": "USA",
+      "id": "8fea"
+    },
+    {
+      "stateName": "Kathmandu",
+      "countryName": "Nepal",
+      "id": "8fen"
+    },
+    {
+      "stateName": "Pokhara",
+      "countryName": "Nepal",
+      "id": "8fea"
+    }
+  ],
+  "countries": [
+    {
+      "countryName": "India",
+      "id": "bc58"
+    },
+    {
+      "countryName": "USA",
+      "id": "0e5b"
+    },
+    {
+      "countryName": "Nepal",
+      "id": "0e5d"
+    }
+  ],
+  "subjects": [
+    {
+      "subjectName": "Hindi",
+      "id": "dc08"
+    },
+    {
+      "subjectName": "English",
+      "id": "b2e9"
+    },
+    {
+      "subjectName": "Mathematics",
+      "id": "779c"
+    },
+    {
+      "subjectName": "Science",
+      "id": "9686"
+    }
+  ],
+  "header": [
+    {
+      "field": "select",
+      "type": "checkbox",
+      "options": "",
+      "optionLabel": "",
+      "id": "e788"
+    },
+    {
+      "field": "expand",
+      "type": "expand",
+      "options": "",
+      "optionLabel": "",
+      "id": "e788"
+    },
+    {
+      "field": "subject",
+      "type": "dropdown",
+      "options": "subjects",
+      "optionLabel": "subjectName",
+      "id": "2bc8"
+    },
+    {
+      "field": "name",
+      "type": "text",
+      "options": "",
+      "optionLabel": "",
+      "id": "bb8b"
+    },
+    {
+      "field": "dob",
+      "type": "date",
+      "options": "",
+      "optionLabel": "",
+      "id": "aae5"
+    },
+    {
+      "field": "houseNo",
+      "type": "text",
+      "options": "",
+      "optionLabel": "",
+      "id": "ba39"
+    },
+    {
+      "field": "street",
+      "type": "text",
+      "options": "",
+      "optionLabel": "",
+      "id": "c59e"
+    },
+    {
+      "field": "country",
+      "type": "dropdown",
+      "options": "countries",
+      "optionLabel": "countryName",
+      "id": "0607"
+    },
+    {
+      "field": "state",
+      "type": "dropdown",
+      "options": "states",
+      "optionLabel": "stateName",
+      "id": "8b1d"
+    },
+    {
+      "field": "marks",
+      "type": "number",
+      "options": "",
+      "optionLabel": "",
+      "id": "78d4"
+    },
+    {
+      "field": "details",
+      "type": "display",
+      "options": "",
+      "optionLabel": "",
+      "id": "5879"
+    }
+  ],
+  "data": [
+    {
+      "id": "1",
+      "subject": [
+        {
+          "subjectName": "Science"
+        },
+        {
+          "subjectName": "Hindi"
+        }
+      ],
+      "name": "Shanky",
+      "dob": "2024-02-12T18:30:00.000Z",
+      "houseNo": "9RI",
+      "street": "The Mall Road",
+      "country": {
+        "stateName": "Los Vegas",
+        "countryName": "USA",
+        "id": "14a0"
+      },
+      "state": {
+        "stateName": "Himachal Pradesh",
+        "countryName": "India",
+        "id": "26d8"
+      },
+      "marks": 66.9
+    },
+    {
+      "id": "2",
+      "subject": [
+        {
+          "subjectName": "English"
+        }
+      ],
+      "name": "Priya",
+      "dob": "1997-02-11T18:30:00.000Z",
+      "houseNo": "10H",
+      "street": "Rahe jahan koi na jaye",
+      "country": {
+        "countryName": "USA"
+      },
+      "state": {
+        "stateName": "Utah",
+        "countryName": "USA"
+      },
+      "marks": 80.6
+    },
+    {
+      "id": "3",
+      "subject": [
+        {
+          "subjectName": "Mathematics"
+        }
+      ],
+      "name": "Deepak",
+      "dob": "1998-03-02T18:30:00.000Z",
+      "houseNo": "19NI",
+      "street": "Old Panchkula Road",
+      "country": {
+        "countryName": "USA",
+        "id": "0e5b"
+      },
+      "state": {
+        "stateName": "Los Vegas",
+        "countryName": "USA",
+        "id": "14a0"
+      },
+      "marks": 89
+    },
+    {
+      "id": "4",
+      "subject": [
+        "Mathematics",
+        {
+          "subjectName": "Hindi"
+        },
+        {
+          "subjectName": "Mathematics"
+        }
+      ],
+      "name": "Vijaya",
+      "dob": "2001-09-09T18:30:00.000Z",
+      "houseNo": "15KI",
+      "street": "sector 41D",
+      "country": {
+        "countryName": "India",
+        "id": "bc58"
+      },
+      "state": {
+        "stateName": "Punjab",
+        "countryName": "India"
+      },
+      "marks": "84"
+    },
+    {
+      "id": "5",
+      "subject": [
+        {
+          "subjectName": "Mathematics"
+        },
+        {
+          "subjectName": "English"
+        }
+      ],
+      "name": "Lalia",
+      "dob": "2024-02-28T18:30:00.000Z",
+      "houseNo": "15KI",
+      "street": "sector 41D",
+      "country": {
+        "countryName": "USA",
+        "id": "0e5b"
+      },
+      "state": {
+        "stateName": "Washington DC",
+        "countryName": "USA",
+        "id": "8fea"
+      },
+      "marks": "84"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<p-cellEditor>
+    <ng-template pTemplate="input">
+        <p-dropdown [options]="option" [(ngModel)]="user[field]" optionLabel="{{label}}"></p-dropdown>
+    </ng-template>
+    <ng-template pTemplate="output">
+        {{ user[field][label] }}
+    </ng-template>
+</p-cellEditor>

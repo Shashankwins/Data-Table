@@ -1,0 +1,8 @@
+<p-cellEditor>
+    <ng-template pTemplate="input"> 
+        <p-inputNumber [(ngModel)]="user[field]" inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2"> </p-inputNumber>
+    </ng-template>
+    <ng-template pTemplate="output">
+        {{ user[field] +"%"}}
+    </ng-template>
+</p-cellEditor>
