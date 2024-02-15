@@ -1,7 +1,10 @@
 <p-table [columns]="headers" [value]="details" dataKey="id" [tableStyle]="{'min-width': '50rem'}"
 (onEditComplete)="complete($event)"
 (onEditInit)="init($event)"
-(onHeaderCheckboxToggle)="onHeaderCheckboxToggle($event)">
+(onHeaderCheckboxToggle)="onHeaderCheckboxToggle($event)"
+[(selection)]="test"
+(onRowSelect)="hey()"
+(onRowUnselect)="hello()">
     <ng-template pTemplate="caption"> Student Data selected: {{ test.length }}</ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
@@ -20,7 +23,6 @@
     <ng-template  pTemplate="body" let-user let-expanded="expanded" let-rowData let-column>
         <tr>
             <ng-container *ngFor="let header of headers">
-
                 <ng-container [ngSwitch]="header.type">
                     <ng-container *ngSwitchCase="'checkbox'">
                         <td >
@@ -39,8 +41,8 @@
                     </ng-container>   
                     <ng-container *ngSwitchCase="'dropdown'">
                         <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
-                            <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="header.options == 'countries' ? countries :
-                                header.options == 'states' ? states : []">
+                            <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="header.options === 'countries' ? countries :
+                                header.options === 'states' ? states : []">
                             </app-dropdown>
                         </td>
                     </ng-container>
@@ -69,24 +71,40 @@
                 <p-table [value]="user.subjects" dataKey="id" [columns]="headers">
                     <ng-template pTemplate="header" let-columns>
                         <tr>
-                            <th style="width: 4rem">
-                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                            </th>
-                            <th *ngFor="let col of columns">
-                                {{col.field}}
-                            </th>
+                            <ng-container *ngFor="let col of columns">
+                                <ng-container *ngIf="col.field === 'select'; else elseBlock">
+                                    <th style="width: 4rem">
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                </ng-container>
+                                <ng-template #elseBlock>
+                                    <th>{{col.field | uppercase}}</th>
+                                </ng-template>
+                            </ng-container>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="body"> 
-                        <td>
-                            <p-tableCheckbox [value]="user"></p-tableCheckbox>
-                        </td> 
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>  
+                    <ng-template pTemplate="body" let-user let-column>
+                        <tr>
+                            <ng-container *ngFor="let header of headers">
+                                <ng-container [ngSwitch]="header.type"></ng-container>
+                                <ng-container *ngSwitchCase="'checkbox'">
+                                    <td >
+                                        <p-tableCheckbox [value]="user"></p-tableCheckbox>
+                                    </td>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'dropdown'">
+                                    <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
+                                        <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="subjects"></app-dropdown>
+                                    </td>
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>]
+                                    <td>
+                                        {{user.field}}
+                                    </td>
+                                </ng-container>
+                            </ng-container> 
+                        </tr> 
+                          
                     </ng-template>
                     <ng-template pTemplate="emptymessage">
                         <tr>

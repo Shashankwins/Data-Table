@@ -3,6 +3,7 @@ import { User } from 'src/app/Model/user';
 import { Country } from './Model/country';
 import { State } from './Model/state';
 import { DataTableService } from './shared/services/data-table.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -82,6 +83,11 @@ export class AppComponent{
 
   hey(){
     console.log(this.test);
+  }
+
+  hello(){
+    console.log(this.test);
+    
   }
 
   onHeaderCheckboxToggle(event: any){
