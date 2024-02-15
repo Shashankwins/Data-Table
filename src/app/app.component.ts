@@ -25,10 +25,14 @@ export class AppComponent{
   ngOnInit() {
     this._tableData.getCountries().subscribe(countries => {
       this.countries = countries;
+      console.log(this.countries);
+      
     });
 
     this._tableData.getStates().subscribe(data => {
       this.states = data;
+      console.log(this.states);
+      
     });
 
     this._tableData.getHeaders().subscribe(data => {
@@ -36,7 +40,9 @@ export class AppComponent{
     });
 
     this._tableData.getSubjects().subscribe(data => {
-      this.subjects = data; 
+      this.subjects = data;
+      console.log(this.subjects);
+       
     });
 
     this._tableData.getData().subscribe(data => {
@@ -83,6 +89,3 @@ export class AppComponent{
   }
   
 }
-
-
-// header.option == 'countries'? countries : 'states' ? states : 'subjects' ? subjects : null" 

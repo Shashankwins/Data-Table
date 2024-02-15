@@ -39,10 +39,12 @@
                     </ng-container>   
                     <ng-container *ngSwitchCase="'dropdown'">
                         <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
-                            <app-dropdown *ngIf="countries?.length" [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="options"></app-dropdown>
+                            <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="header.options == 'countries' ? countries :
+                                header.options == 'states' ? states : []">
+                            </app-dropdown>
                         </td>
                     </ng-container>
-                    <ng-container *ngSwitchCase="'date'">`
+                    <ng-container *ngSwitchCase="'date'">
                         <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
                             <app-calendar [user]="user" [field]="header.field"></app-calendar>
                         </td>
@@ -61,10 +63,10 @@
             </ng-container>
         </tr>   
     </ng-template>
-    <ng-template pTemplate="rowexpansion" let-UserData>
+    <ng-template pTemplate="rowexpansion" let-user>
         <tr>
             <td colspan="10">
-                <p-table [value]="details" dataKey="id" [columns]="headers">
+                <p-table [value]="user.subjects" dataKey="id" [columns]="headers">
                     <ng-template pTemplate="header" let-columns>
                         <tr>
                             <th style="width: 4rem">
@@ -75,7 +77,16 @@
                             </th>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="body">    
+                    <ng-template pTemplate="body"> 
+                        <td>
+                            <p-tableCheckbox [value]="user"></p-tableCheckbox>
+                        </td> 
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>  
                     </ng-template>
                     <ng-template pTemplate="emptymessage">
                         <tr>

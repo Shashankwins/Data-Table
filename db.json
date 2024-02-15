@@ -167,7 +167,7 @@
       "id": "1",
       "subject": [
         {
-          "subjectName": "Science"
+          "subjectName": "Science00"
         },
         {
           "subjectName": "Hindi"
@@ -178,9 +178,8 @@
       "houseNo": "9RI",
       "street": "The Mall Road",
       "country": {
-        "stateName": "Los Vegas",
-        "countryName": "USA",
-        "id": "14a0"
+        "countryName": "India",
+        "id": "bc58"
       },
       "state": {
         "stateName": "Himachal Pradesh",
@@ -201,11 +200,13 @@
       "houseNo": "10H",
       "street": "Rahe jahan koi na jaye",
       "country": {
-        "countryName": "USA"
+        "countryName": "Nepal",
+        "id": "0e5d"
       },
       "state": {
-        "stateName": "Utah",
-        "countryName": "USA"
+        "stateName": "Pokhara",
+        "countryName": "Nepal",
+        "id": "8fea"
       },
       "marks": 80.6
     },
