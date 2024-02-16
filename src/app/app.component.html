@@ -40,6 +40,11 @@
                         </td>
                     </ng-container>   
                     <ng-container *ngSwitchCase="'dropdown'">
+                        <ng-container *ngIf="header.field=='subject'">
+                            <td>
+                                {{user.subject | subject }}
+                            </td>
+                        </ng-container>
                         <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
                             <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="header.options === 'countries' ? countries :
                                 header.options === 'states' ? states : []">

@@ -17,6 +17,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NumberComponent } from './components/number/number.component';
 import { DisplayComponent } from './components/display/display.component';
 import { DataTableService } from './services/data-table.service';
+import { SubjectPipe } from './Pipes/subject.pipe';
 
 
 
@@ -26,7 +27,8 @@ import { DataTableService } from './services/data-table.service';
     TextboxComponent,
     DropdownComponent,
     NumberComponent,
-    DisplayComponent
+    DisplayComponent,
+    SubjectPipe
   ],
   imports: [
     BrowserAnimationsModule,
@@ -61,7 +63,8 @@ import { DataTableService } from './services/data-table.service';
     TextboxComponent,
     DropdownComponent,
     NumberComponent,
-    DisplayComponent
+    DisplayComponent,
+    SubjectPipe
   ]
 })
 export class SharedModule { }

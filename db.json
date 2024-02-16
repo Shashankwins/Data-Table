@@ -234,15 +234,7 @@
     },
     {
       "id": "4",
-      "subject": [
-        "Mathematics",
-        {
-          "subjectName": "Hindi"
-        },
-        {
-          "subjectName": "Mathematics"
-        }
-      ],
+      "subject": [],
       "name": "Vijaya",
       "dob": "2001-09-09T18:30:00.000Z",
       "houseNo": "15KI",
