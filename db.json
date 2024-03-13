@@ -165,16 +165,12 @@
   "data": [
     {
       "id": "1",
-      "subject": [
-        {
-          "subjectName": "Science00"
-        },
-        {
-          "subjectName": "Hindi"
-        }
-      ],
+      "subject": {
+        "subjectName": "Science",
+        "id": "9686"
+      },
       "name": "Shanky",
-      "dob": "2024-02-12T18:30:00.000Z",
+      "dob": "1970-02-05T18:30:00.000Z",
       "houseNo": "9RI",
       "street": "The Mall Road",
       "country": {
@@ -192,7 +188,12 @@
       "id": "2",
       "subject": [
         {
-          "subjectName": "English"
+          "subjectName": "Science",
+          "id": "9686"
+        },
+        {
+          "subjectName": "English",
+          "id": "b2e9"
         }
       ],
       "name": "Priya",
@@ -214,7 +215,12 @@
       "id": "3",
       "subject": [
         {
-          "subjectName": "Mathematics"
+          "subjectName": "English",
+          "id": "b2e9"
+        },
+        {
+          "subjectName": "Hindi",
+          "id": "dc08"
         }
       ],
       "name": "Deepak",
@@ -226,9 +232,9 @@
         "id": "0e5b"
       },
       "state": {
-        "stateName": "Los Vegas",
-        "countryName": "USA",
-        "id": "14a0"
+        "stateName": "Himachal Pradesh",
+        "countryName": "India",
+        "id": "26d8"
       },
       "marks": 89
     },
@@ -253,13 +259,15 @@
       "id": "5",
       "subject": [
         {
-          "subjectName": "Mathematics"
+          "subjectName": "Mathematics",
+          "id": "779c"
         },
         {
-          "subjectName": "English"
+          "subjectName": "Hindi",
+          "id": "dc08"
         }
       ],
-      "name": "Lalia",
+      "name": "Laila",
       "dob": "2024-02-28T18:30:00.000Z",
       "houseNo": "15KI",
       "street": "sector 41D",

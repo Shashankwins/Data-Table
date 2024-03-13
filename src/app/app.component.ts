@@ -3,7 +3,7 @@ import { User } from 'src/app/Model/user';
 import { Country } from './Model/country';
 import { State } from './Model/state';
 import { DataTableService } from './shared/services/data-table.service';
-import { ThisReceiver } from '@angular/compiler';
+import { Subjects } from './Model/subjects';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,7 @@ export class AppComponent{
   targetField : string = ''
   targetValue: any;
   options : any;
+  selectedSubject!: Subjects[];
 
   constructor(private _tableData: DataTableService){
   }
@@ -33,7 +34,6 @@ export class AppComponent{
     this._tableData.getStates().subscribe(data => {
       this.states = data;
       console.log(this.states);
-      
     });
 
     this._tableData.getHeaders().subscribe(data => {
@@ -64,30 +64,6 @@ export class AppComponent{
     if(this.targetValue !== updatedValue){
       this._tableData.updateData(data, id).subscribe();
     }
-  }
-
-  select( option: string ){
-    if(option === 'countries'){
-      return this.countries;
-    }
-    else if(option === 'states'){
-      return this.states;
-    }
-    else if(option === 'subjects'){
-      return this.subjects
-    }
-    else{
-      return 
-    }
-  }
-
-  hey(){
-    console.log(this.test);
-  }
-
-  hello(){
-    console.log(this.test);
-    
   }
 
   onHeaderCheckboxToggle(event: any){

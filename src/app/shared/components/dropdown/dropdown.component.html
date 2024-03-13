@@ -6,3 +6,6 @@
         {{ user[field][label] }}
     </ng-template>
 </p-cellEditor>
+
+
+<ng-container *ngFor="let config of configs"  dynamicField [formGroup]="form" [config]="{type: ''}"></ng-container>

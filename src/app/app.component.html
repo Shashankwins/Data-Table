@@ -2,9 +2,7 @@
 (onEditComplete)="complete($event)"
 (onEditInit)="init($event)"
 (onHeaderCheckboxToggle)="onHeaderCheckboxToggle($event)"
-[(selection)]="test"
-(onRowSelect)="hey()"
-(onRowUnselect)="hello()">
+[(selection)]="test">
     <ng-template pTemplate="caption"> Student Data selected: {{ test.length }}</ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
@@ -31,7 +29,7 @@
                     </ng-container>
                     <ng-container *ngSwitchCase="'expand'">
                         <td >
-                            <button type="button" pButton pRipple [pRowToggler]="user" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                            <button type="button" pButton pRipple [disabled]="!user.subject.length" [pRowToggler]="user" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                         </td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'text'">
@@ -40,16 +38,18 @@
                         </td>
                     </ng-container>   
                     <ng-container *ngSwitchCase="'dropdown'">
-                        <ng-container *ngIf="header.field=='subject'">
+                        <ng-container *ngIf="header.field === 'subject'; else elseBlock">
                             <td>
-                                {{user.subject | subject }}
+                                {{ user.subject | subject }}
                             </td>
                         </ng-container>
-                        <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
-                            <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="header.options === 'countries' ? countries :
+                        <ng-template #elseBlock>
+                            <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
+                                <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="header.options === 'countries' ? countries :
                                 header.options === 'states' ? states : []">
-                            </app-dropdown>
-                        </td>
+                                </app-dropdown>
+                            </td>
+                        </ng-template>
                     </ng-container>
                     <ng-container *ngSwitchCase="'date'">
                         <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
@@ -71,53 +71,42 @@
         </tr>   
     </ng-template>
     <ng-template pTemplate="rowexpansion" let-user>
-        <tr>
-            <td colspan="10">
-                <p-table [value]="user.subjects" dataKey="id" [columns]="headers">
-                    <ng-template pTemplate="header" let-columns>
-                        <tr>
-                            <ng-container *ngFor="let col of columns">
-                                <ng-container *ngIf="col.field === 'select'; else elseBlock">
-                                    <th style="width: 4rem">
-                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                    </th>
-                                </ng-container>
-                                <ng-template #elseBlock>
-                                    <th>{{col.field | uppercase}}</th>
+        <tr *ngFor="let subject of user.subject">
+            <ng-container *ngFor="let header of headers">
+                <ng-container [ngSwitch]="header.field">
+                    <td *ngSwitchCase="'select'">
+                        <p-tableCheckbox [value]="user"></p-tableCheckbox>
+                    </td>
+                    <td *ngSwitchCase="'expand'"></td>
+                    <ng-container *ngSwitchCase="'subject'">
+                        <td [pEditableColumn]="user" pEditableColumnField="subject">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <p-dropdown [options]="subjects" [(ngModel)]="selectedSubject" optionLabel="subjectName"></p-dropdown>
                                 </ng-template>
-                            </ng-container>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-user let-column>
-                        <tr>
-                            <ng-container *ngFor="let header of headers">
-                                <ng-container [ngSwitch]="header.type"></ng-container>
-                                <ng-container *ngSwitchCase="'checkbox'">
-                                    <td >
-                                        <p-tableCheckbox [value]="user"></p-tableCheckbox>
-                                    </td>
-                                </ng-container>
-                                <ng-container *ngSwitchCase="'dropdown'">
-                                    <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
-                                        <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="subjects"></app-dropdown>
-                                    </td>
-                                </ng-container>
-                                <ng-container *ngSwitchDefault>]
-                                    <td>
-                                        {{user.field}}
-                                    </td>
-                                </ng-container>
-                            </ng-container> 
-                        </tr> 
-                          
-                    </ng-template>
-                    <ng-template pTemplate="emptymessage">
-                        <tr>
-                            <td colspan="6">There are no order for this product yet.</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </td>
+                                <ng-template pTemplate="output">
+                                    {{ subject.subjectName }}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                    </ng-container>
+                    <td *ngSwitchCase="'name'">{{user.name}}</td>
+                    <td *ngSwitchCase="'dob'">{{ user.dob | date:'dd/MM/yyyy'}}</td>
+                    <td *ngSwitchCase="'houseNo'">{{user.houseNo}}</td>
+                    <td *ngSwitchCase="'street'">{{user.street}}</td>
+                    <td *ngSwitchCase="'state'">{{user.state.stateName}}</td>
+                    <td *ngSwitchCase="'country'">{{user.country.countryName}}</td>
+                    <td *ngSwitchCase="'details'"></td>
+
+
+                </ng-container>
+                <!-- <ng-container *ngIf="header.field == 'subject'">
+                    <td [pEditableColumn]="user" pEditableColumnField="{{header.field}}">
+                        <app-dropdown  [user]="user" [field]="header.field" [label]="header.optionLabel" [option]="subjects"></app-dropdown>
+                    </td>
+                </ng-container>   -->
+            </ng-container>
         </tr>
     </ng-template>
 </p-table>
+
